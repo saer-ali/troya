@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, ContextTypes
 from agent_api import IchancyAPI as AgentAPI
-
+import asyncpg
 load_dotenv()
 from dotenv import load_dotenv
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, Bot
@@ -149,8 +149,18 @@ GIFT_REDEEM_CODE = 49
 ADMIN_GIFT_APPROVE = 50
 
 user_data = {}
-
-
+DATABASE_URL= OS.GETENV("database_url")
+async def init_db():
+    conn = await asyncpg.connect(DATABASE_URL)
+    await conn.execute('''
+        CREATE TABLE IF NOT EXISTS users (
+            id SERIAL PRIMARY KEY,
+            user_id BIGINT UNIQUE,
+            username TEXT,
+            data JSONB
+        )
+    ''')
+    await conn.close()
 # === دوال مساعدة ===
 def is_bot_active():
     return get_bot_status().get("status") == "active"
