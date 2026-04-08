@@ -2,7 +2,7 @@ import os
 import logging
 import random
 import re
-from agent_api import IchancyAPI
+from agent_api import AgentAPI as IchancyAPI
 from dotenv import load_dotenv
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, Bot
 from telegram.ext import (
