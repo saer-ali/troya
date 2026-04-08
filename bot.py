@@ -1,8 +1,11 @@
 import os
 import logging
-import random
-import re
+from dotenv import load_dotenv
+from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram.ext import Application, CommandHandler, CallbackQueryHandler, ContextTypes
 from agent_api import AgentAPI as IchancyAPI
+
+load_dotenv()
 from dotenv import load_dotenv
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, Bot
 from telegram.ext import (
