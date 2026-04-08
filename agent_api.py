@@ -1,7 +1,7 @@
 import requests
 import os
 
-class AgentAPI:
+class IchancyAPI:
     def __init__(self):
         self.base_url = os.getenv("BASE_URL")
         self.agent_user = os.getenv("AGENT_USER")
