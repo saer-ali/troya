@@ -77,6 +77,3 @@ class AgentAPI:
             return {"success": r.status_code == 200, "message": r.text}
         except Exception as e:
             return {"success": False, "message": str(e)}
-
-class IchancyAPI(AgentAPI):
-    pass
