@@ -3,7 +3,7 @@ import logging
 from dotenv import load_dotenv
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, ContextTypes
-from agent_api import AgentAPI as IchancyAPI
+from agent_api import AgentAPI
 
 load_dotenv()
 from dotenv import load_dotenv
